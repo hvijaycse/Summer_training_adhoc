@@ -7,7 +7,7 @@ except:
     input("Press enter to exit")
     exit()
 
-message='%'.join(input().split())
+message='%20'.join(input().split())
 number=input("Enter number to which of reciver with country code \t+")
 driver=webdriver.Chrome()
 url='https://web.whatsapp.com/send?phone='+number+'&text='+message+"&source=&data="
@@ -16,7 +16,7 @@ while True:
     time.sleep(10)
     if driver.current_url=="https://web.whatsapp.com/":
         time.sleep(10)
-        send=driver.find_element_by_css_selector(".hnQHL")
+        send=driver.find_element_by_css_selector("._3M-N-")
         send.click()
     else:
         print('please scan qr code from your whatsapp')
