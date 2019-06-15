@@ -23,7 +23,6 @@ if choose.lower()=='s':
 		s.sendto(send.encode('ascii'),(ip,port))
 		if "$$$" in send:
 			print("exiting")
-			s.close()
 			exit()
 
 
@@ -41,6 +40,5 @@ if choose.lower()=='r':
 		s.sendto(send.encode('ascii'),soc)
 		if "$$$" in send:
 			print("exiting")
-			s.close()
 			exit()
 s.close()
