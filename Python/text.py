@@ -1,6 +1,9 @@
 #!/usr/bin/python36
 
-data=input("Please enter data \n")[:499].split()
+data=input("Please enter data \n")[:499]
+print(len(data))
+print()
+print()
 words={}
 chars={}
 for word in data:
@@ -24,9 +27,48 @@ list_word.sort()
 list_char.sort()
 list_char.reverse()
 list_word.reverse()
-print(type(list_char[0]))
+print("Words \n")
 print(list_word)
-print(" \n\n")
+print(" \n\nCharacters\n")
 print(list_char)
-#print("Repeated Characters in decending order \n"+' \\ '.join(list_char))
-#print("\n\nRepeated words in decending order \n"+' \\ '.join(list_word))
+#removing more than 5 words complete
+for word in list_word:
+    if word[0]>=5:
+        while True:
+            data.remove(word[1])
+            if word[1] in data:
+                continue
+            else:
+                break
+        list_word.remove(word)
+#adding word occuiirng once
+for word in list_word:
+    if word[0]==1:
+        total_len=len(word[1])+len(data)
+        if total_len<500:
+            print(total_len)
+            data.append(word[1])
+        else:
+            print("else executed")
+            length=0
+            while True:
+                first=list_word[0]
+                length+=len(first[1])
+                if length <len(word[1]):
+                    if first[0]==1:
+                        list_word.remove(first)
+                        data.remove(first[1])
+                        continue
+                    else:
+                        data.remove(first[1])
+                        list_word[0]=(first[0]-1,first[1])
+                        continue
+                else:
+                    data.append(word[1])
+        list_word[list_word.index(word)]=(word[0]+1,word[1])
+
+
+print("\n\ndata after removing words occuring more than 5 times: \n\n")
+print(' '.join(data))
+print("\n\n")
+print(list_word)
