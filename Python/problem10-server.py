@@ -13,14 +13,22 @@ ipfind=s.recvfrom(100)
 resoc=ipfind[1]
 print("Reciver Found")
 option=raw_input("\nPress 1 for messaging\nPress 2 for file transfer\n")
+s.sendto(option,resoc)
+
+def reciving(s,name):
+	while True:
+		new=s.recvfrom(125)[0].decode('ascii')
+		if "$$$" in new:
+			print("exiting")
+			exit()
+		print("\n"+name+new)
+
 if option=='1':
-	what=raw_input("Press S to send and R to recive")
-	if what=='S':
-		message=raw_input()
-		s.sendto(message,resoc)
-	else:
-		reci=s.recvfrom(1000)
-		print("Reciver: ",reci[0])
+	rec=threading.Thread(target=reciving,args=(s,"Reciver: ",))
+	rec.start()
+	while True:
+		msg=raw_input("Enter your message")
+		s.sednto(msg,(ip,port))
 elif option=='2':
 	f=open(raw_input("Enter file address : "),'r')
 	data=f.read()
