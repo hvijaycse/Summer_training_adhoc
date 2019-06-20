@@ -1,0 +1,8 @@
+Question:Your system must not be able to install software telnet using yum.
+Answer: The steps for system to not be able to install telnet are:
+1.Open the file /etc/yum.conf
+2.To exclude certain package from installation append 'exclude=telnet' in the file.
+
+
+Question:Yum url have the telnet package it must not be install.
+Answer: yum -x telnet install
