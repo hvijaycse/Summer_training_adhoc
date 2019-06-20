@@ -1,0 +1,14 @@
+FROM centos                                                                                                             
+MAINTAINER  hvijay99@gmail.com
+
+RUN yum install httpd -y
+
+RUN yum install centos-release-scl -y                                                                                                                                                                                                           RUN yum install yum install  rh-php72-php-mysqlnd rh-php72 rh-php72-php rh-php72-php-gd rh-php72-php-mbstring rh-php72-php-intl rh-php72-php-pecl-apcu -y                                                                                       
+RUN ln -s /opt/rh/httpd24/root/etc/httpd/conf.d/rh-php72-php.conf /etc/httpd/conf.d/
+RUN ln -s /opt/rh/httpd24/root/etc/httpd/conf.modules.d/15-rh-php72-php.conf /etc/httpd/conf.modules.d/
+RUN ln -s /opt/rh/httpd24/root/etc/httpd/modules/librh-php72-php7.so /etc/httpd/modules/                                
+RUN systemctl restart httpd                                                                                             RUN                                                                                                                     COPY info.php /var/www/html
+
+EXPOSE 80
+
+CMD httpd -DFOREGROUND
