@@ -11,11 +11,7 @@ para=[]
 word_count={}
 words=[]
 
-for i in soup.select('p'):
-    para.append((i.text))
-
-for line in para:
-    words+=line.split()
+words=soup.get_text().split()
 
 for word in words:
     if word in word_count:
@@ -56,10 +52,12 @@ plt.title("Top 20 word")
 plt.bar(top20_words,top20)
 plt.xlabel("Words")
 plt.ylabel("Occurance")
+plt.xticks(rotation=90)
 plt.show()
 #all above 3 in scatter
 plt.title("Words above count 3")
 plt.scatter(words_above_3,count_above_3)
 plt.xlabel("words")
 plt.ylabel("Occurance")
+plt.xticks(rotation=90)
 plt.show()
