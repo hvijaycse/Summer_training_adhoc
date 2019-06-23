@@ -10,6 +10,9 @@ soup=BeautifulSoup(webpage.text,features="lxml")
 para=[]
 word_count={}
 words=[]
+temp_links=soup.select('a')
+final_links=[link for link in temp_links if 'href' in str(link)]
+print("NO of links are ",len(final_links))
 
 words=soup.get_text().split()
 
@@ -43,7 +46,6 @@ counts.reverse()
 words_above_3=words[:pos]
 count_above_3=counts[:pos]
 #plotting top20
-
 plt.title("Top 20 words")
 plt.pie(top20,labels=top20_words)
 plt.show()
@@ -61,3 +63,14 @@ plt.xlabel("words")
 plt.ylabel("Occurance")
 plt.xticks(rotation=90)
 plt.show()
+
+#plotting stack plot for links
+plt.title("No of Links in the webpage")
+plt.xlabel("Links on webpage")
+y=[0,len(final_links),1]
+x=[1.9,2,2.1]
+plt.stackplot(x,y,colors=['brown'])
+plt.xlim(1,3)
+plt.show()
+
+exit()
