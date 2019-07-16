@@ -1,3 +1,3 @@
-# Summer_training_adhoc
-Traning repository Adhock Data Vizualization and Processing
-This directory contains assignments and questions For DataVizualization and Processing 
+# Summer_training_adhoc 
+This directory contains assignments and questions which was solved or tried by while my training at adhoc
+

@@ -1,0 +1,19 @@
+Q)  How to give root access in linux?
+ans) That varies on which os you are using for eg : if you are using redhat "su - root" you can acces root user and in ubuntu "sudo" command is used
+
+Q) How to show any other folder on Desktop?
+ans) In user ditectory open .config directoy and than edit file user-dirs.dirs and set XDG_DESKTOP_DIR="$HOME/Desktop" to your required directory path
+
+Q)How recycle bin delete file so fast no matter what is the size of the data deleted?
+ans) When we delete the data it is never been trasfred to any other directory or any other files it just stay there but is decalred as being in recyle bin 
+    so we no longer can acces the data but it is still there , when we write over it by adding some new files than the old data is replaced by new 
+    
+Q) How to update History when entered manually in /home/username/.bash_history file ?
+ans) after making changes in .bash_history file run command "source .bash_history" assuming that you are in that user directory
+
+Q) What to do that application can't be run via Gui but can be run via command?
+ans ) Make a copy of the application file and store it somewhere else or rename it and empty the content of original file
+      this will make gui not doing anything when opening application via gui and now add alias  application_command="path to the copied application file or renamed file"
+
+Q) How to write anything in a directory without creating any file inside that directory ?
+ans) ERROR 404
