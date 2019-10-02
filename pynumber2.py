@@ -3,7 +3,7 @@ import numpy as np
 
 start=random.randrange(100,120)
 
-list=[]
+list=[] # creating a list
 for i in range(2):
     last=start
     temp_list=[]
