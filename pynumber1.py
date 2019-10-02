@@ -11,7 +11,7 @@ for  i in range(int(shape[0])):
 
 array=np.array(list)
 
-print(array)
+print(array) # displaying array
 
 store=open('array.txt','w')
 store.write(str(array))
